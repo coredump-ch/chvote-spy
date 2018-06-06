@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "name": "CHVote Spy",
+    "version": "0.1",
+    "description": "Show how easy it is to steal information on how a person voted.",
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["chvote-spy.js"]
+        }
+    ]
+}
