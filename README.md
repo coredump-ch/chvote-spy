@@ -1,9 +1,10 @@
 # CHVote Spy
 
 This is a proof-of-concept Firefox extension that will collect, deanonymize and
-exfiltrate the votes of a voter.
+could then potentially exfiltrate the votes of a voter.
 
-This directly contradicts a statement in the [SG E-Voting FAQ](https://doc.evote-ch.ch/sg/faq/de/):
+This directly contradicts a statement in the
+[SG E-Voting FAQ](https://doc.evote-ch.ch/sg/faq/de/):
 
 > 4.1 Ist das Stimmgeheimnis mit E-Voting gewährleistet? 
 >
@@ -11,7 +12,11 @@ This directly contradicts a statement in the [SG E-Voting FAQ](https://doc.evote
 > Stimmabgabe durch das E-Voting-System von den personenbezogenen Daten getrennt. 
 > Die abgegebenen Stimmen werden in der elektronischen Urne anonym gespeichert. 
 
-## Installing
+Note: The add-on currently does *not* send any data to any third party.
+It is only a proof of concept to show what would be possible by add-ons
+with access to content.
+
+## Installing (Dev)
 
 Open "about:debugging" in Firefox, click "Load Temporary Add-on" and select any
 file in this extension's directory.
