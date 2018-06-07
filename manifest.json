@@ -1,21 +1,13 @@
 {
     "manifest_version": 2,
     "name": "CHVote Spy",
-    "version": "0.1",
-    "description": "Show how easy it is to steal information on how a person voted.",
+    "version": "0.2",
+    "description": "Demonstrate how easy it is to steal information on how a person voted.",
     "permissions": ["storage"],
     "content_scripts": [
         {
-            "matches": ["https://www.evote-ch.ch/sg"],
-            "js": ["1_identification.js"]
-        },
-        {
-            "matches": ["https://www.evote-ch.ch/evoting/vote/displaySummary"],
-            "js": ["4_summary.js"]
-        },
-        {
-            "matches": ["https://www.facebook.com/"],
-            "js": ["x_facebook.js"]
+            "matches": ["https://*/*"],
+            "js": ["content.js"]
         }
     ]
 }
