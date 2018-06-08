@@ -12,9 +12,13 @@ This directly contradicts a statement in the
 > Stimmabgabe durch das E-Voting-System von den personenbezogenen Daten getrennt. 
 > Die abgegebenen Stimmen werden in der elektronischen Urne anonym gespeichert. 
 
-Note: The add-on currently does *not* send any data to any third party.
-It is only a proof of concept to show what would be possible by add-ons
+Note: The extension currently does *not* send any data to any third party.
+It is only a proof of concept to show what would be possible by extensions
 with access to content.
+
+## Installing (Signed)
+
+You can find a signed version of the extension at https://tmp.dbrgn.ch/chvote_spy-0.2-an+fx.xpi.
 
 ## Installing (Dev)
 
@@ -36,12 +40,21 @@ observing the red bar at the top of the page.
 6. Do steps 1, 2 and 3
 7. On step 4 ("Stimmabgabe"), after having entered the birthdate, take a look at the debug console.
 
-TODO: Screenshot / Video
+Demo video: https://www.youtube.com/watch?v=ZQsT1dONQoc
 
 ## How it works
 
-TODO
+Firefox extensions have the permission to access the full page content. Thus,
+an extension with access to all visited websites can access the votes that the
+user has cast.
+
+Additionally, extensions can store data across websites. This is used to store
+personal information from Facebook, so that it can be correlated with the cast
+vote. It makes it possible to de-anonymize the voter.
 
 ## Mitigation
 
-TODO
+The browser is inherently an unsafe environment. It loads remote code and
+executes it. It would be better if the e-voting client would run in a trusted
+container, like a standalone application binary. However, even then the danger
+of infected end-user devices persists.
