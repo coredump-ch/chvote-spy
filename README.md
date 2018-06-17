@@ -1,7 +1,10 @@
 # CHVote Spy
 
-This is a proof-of-concept Firefox extension that will collect, deanonymize and
-could then potentially exfiltrate the votes of a voter.
+https://www.coredump.ch/2018/06/17/verletzung-stimmgeheimnis-e-voting-st-gallen/
+
+This is a proof-of-concept Firefox extension that will collect e-voting votes
+and deanonymize them using Facebook. It could then potentially exfiltrate those
+votes by sending them to a server.
 
 This directly contradicts a statement in the
 [SG E-Voting FAQ](https://doc.evote-ch.ch/sg/faq/de/):
@@ -25,11 +28,12 @@ with access to content.
 
 ## Installing (Signed)
 
-You can find a signed version of the extension at https://tmp.dbrgn.ch/chvote_spy-0.2-an+fx.xpi.
+You can find a signed version of the extension at
+https://github.com/coredump-ch/chvote-spy/releases/tag/v0.2.
 
 ## Installing (Dev)
 
-Open "about:debugging" in Firefox, click "Load Temporary Add-on" and select any
+Open `about:debugging` in Firefox, click "Load Temporary Add-on" and select any
 file in this extension's directory.
 
 The extension will now be installed, and will stay until you restart Firefox.
@@ -59,9 +63,17 @@ Additionally, extensions can store data across websites. This is used to store
 personal information from Facebook, so that it can be correlated with the cast
 vote. It makes it possible to de-anonymize the voter.
 
+More details: https://www.coredump.ch/2018/06/17/verletzung-stimmgeheimnis-e-voting-st-gallen/ (German)
+
 ## Mitigation
 
 The browser is inherently an unsafe environment. It loads remote code and
 executes it. It would be better if the e-voting client would run in a trusted
 container, like a standalone application binary. However, even then the danger
 of infected end-user devices persists.
+
+A way to hide the real vote of the voter would be to replace the yes/no
+checkboxes by an input field, where the voter has to enter different codes for
+yes or no. The attacker would not know the meaning of that code. Unfortunately,
+that approach was considered too complicated for the voter by the people
+responsible for the E-Voting rollout.
