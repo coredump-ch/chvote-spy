@@ -12,6 +12,13 @@ This directly contradicts a statement in the
 > Stimmabgabe durch das E-Voting-System von den personenbezogenen Daten getrennt. 
 > Die abgegebenen Stimmen werden in der elektronischen Urne anonym gespeichert. 
 
+It also contradicts the "St. Galler Gesetz über Wahlen und Abstimmungen" Art.
+62 Abs. 1b:
+
+> Die Stimme kann elektronisch abgegeben werden, wenn: (...) der Schutz von
+> Stimmgeheimnis und Personendaten der Stimmberechtigten durch angemessene
+> Massnahmen gewährleistet sind.
+
 Note: The extension currently does *not* send any data to any third party.
 It is only a proof of concept to show what would be possible by extensions
 with access to content.
